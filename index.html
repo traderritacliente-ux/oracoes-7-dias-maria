@@ -466,6 +466,7 @@
             <video
               controls
               autoplay
+              muted
               playsinline
               preload="auto"
               poster="assets/capa-maria-desatadora.webp"
@@ -477,7 +478,7 @@
             </video>
           </div>
           <p id="video-autoplay-note" class="video-autoplay-note">
-            Vamos tentar iniciar o vídeo com som. Se o navegador bloquear, ele começará sem som; use os controles para ativar o áudio.
+            O vídeo começa automaticamente sem som. Ative o áudio nos controles para ouvir.
           </p>
         </div>
         <div class="hero-copy">
@@ -569,27 +570,17 @@
         const video = document.querySelector(".hero-video-frame video");
         if (!video) return;
 
-        const startAutoplay = async () => {
-          video.defaultMuted = false;
-          video.muted = false;
-          try {
-            await video.play();
-          } catch {
-            // Navegadores normalmente bloqueiam áudio automático antes de uma interação.
-            video.defaultMuted = true;
-            video.muted = true;
-            try {
-              await video.play();
-            } catch {
-              // Os controles permanecem disponíveis se o navegador bloquear o autoplay.
-            }
-          }
+        const startMutedAutoplay = () => {
+          video.defaultMuted = true;
+          video.muted = true;
+          const playback = video.play();
+          if (playback && typeof playback.catch === "function") playback.catch(() => {});
         };
 
         if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", startAutoplay, { once: true });
+          document.addEventListener("DOMContentLoaded", startMutedAutoplay, { once: true });
         } else {
-          startAutoplay();
+          startMutedAutoplay();
         }
       })();
     </script>
