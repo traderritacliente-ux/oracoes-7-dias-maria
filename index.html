@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#06525c" />
+    <meta
+      name="description"
+      content="Um ebook devocional de 7 dias com Maria para pedir a Deus sabedoria, esperança e auxílio diante dos desafios financeiros."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      property="og:title"
+      content="Orações de 7 Dias com Maria para Pedir Ajuda Financeira a Deus"
+    />
+    <meta
+      property="og:description"
+      content="Sete dias de oração, esperança e confiança em Deus. Ebook digital por R$ 19,90."
+    />
+    <meta property="og:image" content="assets/capa-maria-desatadora.webp" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" as="image" href="assets/capa-maria-desatadora.webp" />
+    <title>Orações de 7 Dias com Maria | Ebook devocional</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #063b42;
+        --teal: #06525c;
+        --teal-soft: #2f737d;
+        --paper: #f7f9f8;
+        --paper-deep: #ebf0ee;
+        --white: #fff;
+        --body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+        --lead: clamp(1.1rem, 1rem + 0.45vw, 1.375rem);
+        --display: clamp(2.25rem, 1.45rem + 3.2vw, 3.85rem);
+        --measure: 68ch;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--teal);
+      }
+
+      body {
+        margin: 0;
+        background: var(--teal);
+        color: var(--ink);
+        font-family: "Switzer", "Aptos", "Segoe UI", sans-serif;
+        font-size: var(--body);
+        line-height: 1.55;
+        text-rendering: optimizeLegibility;
+      }
+
+      a {
+        color: inherit;
+        text-underline-offset: 0.2em;
+      }
+
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid #b9e0dd;
+        outline-offset: 4px;
+      }
+
+      .shell {
+        width: min(100% - 2.5rem, 1160px);
+        margin-inline: auto;
+      }
+
+      .site-header {
+        display: flex;
+        min-height: 76px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        color: var(--paper);
+      }
+
+      .wordmark {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        text-decoration: none;
+      }
+
+      .header-link {
+        font-size: 0.9375rem;
+        font-weight: 500;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+        align-items: center;
+        gap: clamp(2rem, 5vw, 5.5rem);
+        min-height: 620px;
+        margin-block: 0 5rem;
+        padding: clamp(1.25rem, 4vw, 4.5rem);
+        background: var(--paper);
+      }
+
+      .cover-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .cover {
+        display: block;
+        width: min(100%, 330px);
+        height: auto;
+        aspect-ratio: 5 / 8;
+        object-fit: cover;
+      }
+
+      .hero-copy {
+        max-width: 660px;
+      }
+
+      h1,
+      h2,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        max-width: 12ch;
+        margin-bottom: 1.125rem;
+        color: var(--teal);
+        font-size: var(--display);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+        text-wrap: balance;
+      }
+
+      .hero-intro {
+        max-width: 55ch;
+        margin-bottom: 1.25rem;
+        font-size: var(--lead);
+        line-height: 1.5;
+      }
+
+      .devotional-note {
+        max-width: 56ch;
+        margin: 0 0 1.5rem;
+        color: #1b555b;
+      }
+
+      .price-line {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0.5rem 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .price {
+        color: var(--teal);
+        font-size: clamp(1.8rem, 1.4rem + 1.3vw, 2.5rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.1;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .price-note {
+        color: #28565b;
+        font-size: 0.9375rem;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 54px;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.85rem 1.25rem;
+        border: 0;
+        background: var(--teal);
+        color: var(--white);
+        cursor: pointer;
+        font: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.25;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 180ms ease, transform 180ms ease;
+      }
+
+      .button:hover {
+        background: #043e46;
+        transform: translateY(-1px);
+      }
+
+      .button:focus-visible {
+        outline: 3px solid #2f737d;
+        outline-offset: 4px;
+      }
+
+      .checkout-note {
+        margin: 0.75rem 0 0;
+        color: #28565b;
+        font-size: 0.875rem;
+      }
+
+      .section {
+        margin-block: 0 5rem;
+        padding: clamp(1.5rem, 4vw, 4rem);
+        background: var(--paper-deep);
+      }
+
+      .section-heading {
+        max-width: 18ch;
+        margin-bottom: 1rem;
+        color: var(--teal);
+        font-size: clamp(1.8rem, 1.3rem + 2.1vw, 2.85rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+        text-wrap: balance;
+      }
+
+      .section-lead {
+        max-width: var(--measure);
+        margin-bottom: 2rem;
+        font-size: var(--lead);
+      }
+
+      .video-frame {
+        overflow: hidden;
+        background: #073b42;
+        color: var(--paper);
+        padding: clamp(0.5rem, 1.2vw, 1rem);
+      }
+
+      .video-frame video {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        background: #073b42;
+      }
+
+      .contents {
+        display: grid;
+        grid-template-columns: 1fr 0.8fr;
+        align-items: start;
+        gap: clamp(2rem, 6vw, 6rem);
+        background: var(--paper);
+      }
+
+      .prayer-list {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .prayer-list li {
+        padding: 1rem 0;
+        border-bottom: 1px solid #bfd0cd;
+        font-size: var(--lead);
+      }
+
+      .prayer-list li:first-child {
+        border-top: 1px solid #bfd0cd;
+      }
+
+      .price-panel {
+        align-self: stretch;
+        padding: clamp(1.5rem, 3vw, 2.5rem);
+        background: var(--teal);
+        color: var(--paper);
+      }
+
+      .price-panel h2 {
+        max-width: 14ch;
+        margin-bottom: 1rem;
+        font-size: clamp(1.65rem, 1.2rem + 1.4vw, 2.25rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.1;
+      }
+
+      .price-panel .price {
+        color: var(--paper);
+      }
+
+      .price-panel .price-note,
+      .price-panel .checkout-note {
+        color: #e5f0ee;
+      }
+
+      .price-panel .button {
+        width: 100%;
+        background: var(--paper);
+        color: var(--teal);
+      }
+
+      .price-panel .button:hover {
+        background: #e4eeeb;
+      }
+
+      .faq {
+        display: grid;
+        grid-template-columns: 0.75fr 1fr;
+        gap: clamp(2rem, 6vw, 6rem);
+      }
+
+      .faq-list details {
+        padding: 18px 12px;
+        border-bottom: 1px solid #bfd0cd;
+      }
+
+      .faq-list details:first-child {
+        border-top: 1px solid #bfd0cd;
+      }
+
+      .faq-list summary {
+        color: var(--teal);
+        cursor: pointer;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+
+      .faq-list details p {
+        max-width: 58ch;
+        margin: 0.75rem 0 0;
+      }
+
+      .site-footer {
+        padding: 0.5rem 0 2.5rem;
+        color: var(--paper);
+        font-size: 0.875rem;
+      }
+
+      .site-footer p {
+        max-width: 75ch;
+        margin-bottom: 0.5rem;
+      }
+
+      @media (max-width: 760px) {
+        .shell {
+          width: min(100% - 1.25rem, 600px);
+        }
+
+        .site-header {
+          min-height: 64px;
+        }
+
+        .header-link {
+          font-size: 0.875rem;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+          min-height: auto;
+          margin-bottom: 3rem;
+          padding: 1.5rem;
+        }
+
+        .hero-copy {
+          grid-row: 1;
+        }
+
+        h1 {
+          max-width: 14ch;
+          font-size: clamp(2.2rem, 10vw, 3.35rem);
+        }
+
+        .cover {
+          width: min(61%, 230px);
+        }
+
+        .section {
+          margin-bottom: 3rem;
+          padding: 1.5rem;
+        }
+
+        .contents,
+        .faq {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .button {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header shell">
+      <a class="wordmark" href="#inicio">Orações com Maria</a>
+      <a class="header-link" href="#comprar">Ver o eBook por R$ 19,90</a>
+    </header>
+
+    <main id="inicio" class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="cover-wrap">
+          <img
+            class="cover"
+            src="assets/capa-maria-desatadora.webp"
+            alt="Capa do eBook Orações de 7 Dias com Maria para Pedir Ajuda Financeira a Deus"
+            width="680"
+            height="1088"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="hero-copy">
+          <h1 id="hero-title">Vamos orar pelas finanças</h1>
+          <p class="hero-intro">
+            Filho, filha, leve a Deus suas preocupações financeiras. Nesta jornada
+            de 7 dias com Maria, peça sabedoria, esperança e auxílio para cada passo.
+          </p>
+          <p class="devotional-note">
+            Uma jornada devocional para colocar as finanças em oração e seguir com
+            fé, um dia de cada vez.
+          </p>
+          <div id="comprar" class="price-line">
+            <span class="price">R$ 19,90</span>
+            <span class="price-note">ebook digital</span>
+          </div>
+          <a
+            class="button"
+            href="https://pay.hub.la/xepEEFUuX9vejU7YfVHw"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Comprar eBook por R$ 19,90
+          </a>
+          <p class="checkout-note">Pagamento e acesso pelo checkout seguro da Hubla.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="video-title">
+        <h2 id="video-title" class="section-heading">Um momento de fé e esperança</h2>
+        <p class="section-lead">
+          Assista à apresentação e conheça esta jornada de oração por sabedoria,
+          serenidade e confiança em Deus diante das preocupações financeiras.
+        </p>
+        <div class="video-frame">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="assets/capa-maria-desatadora.webp"
+            aria-label="Vídeo de apresentação do eBook de orações"
+          >
+            <source src="assets/video-apresentacao-otimizado.mp4" type="video/mp4" />
+            <source src="assets/video-apresentacao.mp4" type="video/mp4" />
+            Seu navegador não conseguiu abrir o vídeo. Você ainda pode conhecer o eBook e acessar o checkout.
+          </video>
+        </div>
+      </section>
+
+      <section class="section contents" aria-labelledby="contents-title">
+        <div>
+          <h2 id="contents-title" class="section-heading">Sete dias para rezar com Maria</h2>
+          <p class="section-lead">
+            Uma prática devocional simples para apresentar suas intenções a Deus e
+            fortalecer a esperança enquanto você busca sabedoria para cada passo.
+          </p>
+          <ul class="prayer-list">
+            <li>Orações para os sete dias da jornada.</li>
+            <li>Palavras para colocar as preocupações financeiras diante de Deus.</li>
+            <li>Reflexões de fé, esperança e confiança na intercessão de Maria.</li>
+          </ul>
+        </div>
+        <aside class="price-panel" aria-label="Comprar eBook">
+          <h2>Comece sua jornada de oração</h2>
+          <div class="price-line">
+            <span class="price">R$ 19,90</span>
+            <span class="price-note">pagamento único</span>
+          </div>
+          <a
+            class="button"
+            href="https://pay.hub.la/xepEEFUuX9vejU7YfVHw"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Comprar eBook
+          </a>
+          <p class="checkout-note">Acesso digital após a confirmação da compra.</p>
+        </aside>
+      </section>
+
+      <section class="section faq" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="section-heading">Antes de começar</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Como recebo o eBook?</summary>
+            <p>Depois da confirmação do pagamento, a Hubla libera o acesso digital na área de membros.</p>
+          </details>
+          <details>
+            <summary>O material promete ganhos ou quitação de dívidas?</summary>
+            <p>Não. É um conteúdo devocional de oração e reflexão, sem promessa de renda ou de resultado financeiro.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <p>Material devocional. A oração pode acompanhar suas decisões; ela não substitui orientação financeira.</p>
+      <p>© 2026 Orações com Maria.</p>
+    </footer>
+  </body>
+</html>
