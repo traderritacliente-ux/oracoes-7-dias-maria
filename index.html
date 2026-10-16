@@ -102,7 +102,7 @@
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(240px, 0.78fr) minmax(0, 1.22fr);
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
         align-items: center;
         gap: clamp(2rem, 5vw, 5.5rem);
         min-height: 620px;
@@ -113,7 +113,9 @@
 
       .cover-wrap {
         display: flex;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
       }
 
       .cover {
@@ -122,6 +124,19 @@
         height: auto;
         aspect-ratio: 5 / 8;
         object-fit: cover;
+      }
+
+      .hero-video-frame {
+        width: 100%;
+      }
+
+      .video-autoplay-note {
+        max-width: 54ch;
+        margin: 0.8rem 0 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+        text-align: center;
       }
 
       .hero-copy {
@@ -252,6 +267,7 @@
         height: auto;
         aspect-ratio: 16 / 9;
         background: #073b42;
+        object-fit: cover;
       }
 
       .contents {
@@ -294,6 +310,15 @@
         font-weight: 600;
         letter-spacing: -0.035em;
         line-height: 1.1;
+      }
+
+      .price-panel-cover {
+        display: block;
+        width: min(100%, 140px);
+        height: auto;
+        margin: 0 auto 1.25rem;
+        aspect-ratio: 5 / 8;
+        object-fit: cover;
       }
 
       .price-panel .price {
@@ -363,7 +388,13 @@
         }
 
         .header-link {
+          font-size: 0.8125rem;
+          white-space: nowrap;
+        }
+
+        .wordmark {
           font-size: 0.875rem;
+          white-space: nowrap;
         }
 
         .hero {
@@ -375,6 +406,10 @@
         }
 
         .hero-copy {
+          grid-row: 2;
+        }
+
+        .cover-wrap {
           grid-row: 1;
         }
 
@@ -421,20 +456,29 @@
   <body>
     <header class="site-header shell">
       <a class="wordmark" href="#inicio">Orações com Maria</a>
-      <a class="header-link" href="#comprar">Ver o eBook por R$ 19,90</a>
+      <a class="header-link" href="#comprar">Comprar · R$ 19,90</a>
     </header>
 
     <main id="inicio" class="shell">
       <section class="hero" aria-labelledby="hero-title">
         <div class="cover-wrap">
-          <img
-            class="cover"
-            src="assets/capa-maria-desatadora.webp"
-            alt="Capa do eBook Orações de 7 Dias com Maria para Pedir Ajuda Financeira a Deus"
-            width="680"
-            height="1088"
-            fetchpriority="high"
-          />
+          <div class="video-frame hero-video-frame">
+            <video
+              controls
+              autoplay
+              playsinline
+              preload="auto"
+              poster="assets/capa-maria-desatadora.webp"
+              aria-label="Vídeo de apresentação do eBook de orações"
+              aria-describedby="video-autoplay-note"
+            >
+              <source src="assets/video-apresentacao-otimizado.mp4" type="video/mp4" />
+              Seu navegador não conseguiu abrir o vídeo. Você ainda pode conhecer o eBook e acessar o checkout.
+            </video>
+          </div>
+          <p id="video-autoplay-note" class="video-autoplay-note">
+            Vamos tentar iniciar o vídeo com som. Se o navegador bloquear, ele começará sem som; use os controles para ativar o áudio.
+          </p>
         </div>
         <div class="hero-copy">
           <h1 id="hero-title">Vamos orar pelas finanças</h1>
@@ -462,27 +506,6 @@
         </div>
       </section>
 
-      <section class="section" aria-labelledby="video-title">
-        <h2 id="video-title" class="section-heading">Um momento de fé e esperança</h2>
-        <p class="section-lead">
-          Assista à apresentação e conheça esta jornada de oração por sabedoria,
-          serenidade e confiança em Deus diante das preocupações financeiras.
-        </p>
-        <div class="video-frame">
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            poster="assets/capa-maria-desatadora.webp"
-            aria-label="Vídeo de apresentação do eBook de orações"
-          >
-            <source src="assets/video-apresentacao-otimizado.mp4" type="video/mp4" />
-            <source src="assets/video-apresentacao.mp4" type="video/mp4" />
-            Seu navegador não conseguiu abrir o vídeo. Você ainda pode conhecer o eBook e acessar o checkout.
-          </video>
-        </div>
-      </section>
-
       <section class="section contents" aria-labelledby="contents-title">
         <div>
           <h2 id="contents-title" class="section-heading">Sete dias para rezar com Maria</h2>
@@ -497,6 +520,14 @@
           </ul>
         </div>
         <aside class="price-panel" aria-label="Comprar eBook">
+          <img
+            class="price-panel-cover"
+            src="assets/capa-maria-desatadora.webp"
+            alt="Capa do eBook Orações de 7 Dias com Maria para Pedir Ajuda Financeira a Deus"
+            width="680"
+            height="1088"
+            loading="lazy"
+          />
           <h2>Comece sua jornada de oração</h2>
           <div class="price-line">
             <span class="price">R$ 19,90</span>
@@ -533,5 +564,34 @@
       <p>Material devocional. A oração pode acompanhar suas decisões; ela não substitui orientação financeira.</p>
       <p>© 2026 Orações com Maria.</p>
     </footer>
+    <script>
+      (() => {
+        const video = document.querySelector(".hero-video-frame video");
+        if (!video) return;
+
+        const startAutoplay = async () => {
+          video.defaultMuted = false;
+          video.muted = false;
+          try {
+            await video.play();
+          } catch {
+            // Navegadores normalmente bloqueiam áudio automático antes de uma interação.
+            video.defaultMuted = true;
+            video.muted = true;
+            try {
+              await video.play();
+            } catch {
+              // Os controles permanecem disponíveis se o navegador bloquear o autoplay.
+            }
+          }
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", startAutoplay, { once: true });
+        } else {
+          startAutoplay();
+        }
+      })();
+    </script>
   </body>
 </html>
